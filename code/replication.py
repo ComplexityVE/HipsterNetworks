@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import scipy.io
 
 import random
 import networkx as nx
@@ -6,13 +7,24 @@ import numpy as np
 
 from networkx.algorithms.approximation import average_clustering
 
-'''
+
+def read_graph_mat(filename):
+    G = nx.Graph()
+    contents = scipy.io.loadmat(filename)
+    array = (contents['A']).astype(int)
+    edges_list = []
+    for user in array:
+        for edge in user:
+            edges_list.append(edge)
+    print(edges_list)
+    G.add_edges_from(array)
+    return G
+
 def read_graph(filename):
     G = nx.Graph()
     array = np.loadtxt(filename, dtype=int)
     G.add_edges_from(array)
     return G
-    '''
 
 class Hipster:
     def __init__(self, G, tau, p):
@@ -115,7 +127,11 @@ class Hipster:
         plt.show()
 
 
-graph = nx.watts_strogatz_graph(100, 15, 0)
+'''graph = nx.watts_strogatz_graph(100, 15, 0)
 hipster = Hipster(graph, 1, .9)
 hipster.run_simulation(10)
+hipster.graph()'''
+fb = read_graph('facebook_combined.txt')
+hipster = Hipster(fb, 1, .3)
+hipster.run_simulation(40)
 hipster.graph()
