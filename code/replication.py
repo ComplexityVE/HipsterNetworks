@@ -36,6 +36,9 @@ class Hipster:
         self.G = G
         self.p = p
         self.totalprods = [(1,0)]
+        self.alltotalprods = []
+        self.totalprod1sum = {}
+        self.totalprod2sum = {}
 
     def flip(p):
         """Returns True with probability `p`."""
@@ -106,21 +109,44 @@ class Hipster:
             self.nodes_dict[item[0]]['state'] = 1
             self.nodes_dict[item[0]]['S'] = item[1]
 
-    def run_simulation(self, time):
-        self.initialize_hipsters()
-        starting_node = int(np.random.choice(self.G.nodes(), 1))
-        self.nodes_dict[starting_node]['state'] = 1
-        self.nodes_dict[starting_node]['S'] = 1
+    def run_simulation_num(self, time, num):
         for i in range(time):
-            if i-self.tau < 0:
-                self.product_ratio = self.product_ratios[0]
-            else:
-                self.product_ratio = self.product_ratios[i-self.tau]
-            self.time_step()
+            self.totalprod1sum[i] = 0
+            self.totalprod2sum[i] = 0
+        for k in range(num):
+            self.product_ratio = 0
+            self.product_ratios = [self.product_ratio]
+            self.hipsterexists = False
+            self.nodes_dict = {}
+            self.totalprods = [(1,0)]
+            self.initialize_hipsters()
+            starting_node = int(np.random.choice(self.G.nodes(), 1))
+            self.nodes_dict[starting_node]['state'] = 1
+            self.nodes_dict[starting_node]['S'] = 1
+            for i in range(time):
+                if i-self.tau < 0:
+                    self.product_ratio = self.product_ratios[0]
+                else:
+                    self.product_ratio = self.product_ratios[i-self.tau]
+                self.time_step()
+                self.totalprod1sum[i]+=self.totalprods[i][0]
+                self.totalprod2sum[i]+=self.totalprods[i][1]
+            self.alltotalprods.append(self.totalprods)
+        '''self.current_t_prod1 = []
+        self.current_t_prod2 = []
+        self.prod1_attimes = []
+        self.prod2_attimes = []
+        for k in range(time):
+            for totalprods in self.alltotalprods:
+                self.current_t_prod1.append(totalprods[k][0])
+                self.current_t_prod2.append(totalprods[k][1])'''
+        self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(time)]
+        self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(time)]
+
 
     def graph(self):
-        prod1_ratios = [x[0]/len(self.G.nodes()) for x in self.totalprods]
-        prod2_ratios = [x[1]/len(self.G.nodes()) for x in self.totalprods]
+        prod1_ratios = [x/len(self.G.nodes()) for x in self.prod1_attimes]
+        prod2_ratios = [x/len(self.G.nodes()) for x in self.prod2_attimes]
 
         plt.plot(prod1_ratios, 'r--', prod2_ratios, 'bs')
 
@@ -133,5 +159,5 @@ hipster.run_simulation(10)
 hipster.graph()'''
 fb = read_graph('facebook_combined.txt')
 hipster = Hipster(fb, 1, .3)
-hipster.run_simulation(40)
+hipster.run_simulation_num(40, 10)
 hipster.graph()
