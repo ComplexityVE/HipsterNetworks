@@ -57,6 +57,7 @@ class Hipster:
         self.totalprod1 = 0
         self.totalprod2 = 0
         self.states_list = []
+        self.stuff_changing = False
 
         for node in self.G.nodes():
             neighbors_alive = 0
@@ -108,8 +109,10 @@ class Hipster:
         for item in self.states_list:
             self.nodes_dict[item[0]]['state'] = 1
             self.nodes_dict[item[0]]['S'] = item[1]
+            self.stuff_changing = True
 
     def run_simulation_num(self, time, num):
+        self.count = 0
         for i in range(time):
             self.totalprod1sum[i] = 0
             self.totalprod2sum[i] = 0
@@ -143,10 +146,15 @@ class Hipster:
         self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(time)]
         self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(time)]
 
-
-    def graph(self):
+    def get_ratios(self):
         prod1_ratios = [x/len(self.G.nodes()) for x in self.prod1_attimes]
         prod2_ratios = [x/len(self.G.nodes()) for x in self.prod2_attimes]
+        return [prod1_ratios, prod2_ratios]
+
+    def graph(self):
+        ratios = self.get_ratios()
+        prod1_ratios = ratios[0]
+        prod2_ratios = ratios[1]
 
         plt.plot(prod1_ratios, 'r--', prod2_ratios, 'bs')
 
@@ -159,5 +167,5 @@ hipster.run_simulation(10)
 hipster.graph()'''
 fb = read_graph('facebook_combined.txt')
 hipster = Hipster(fb, 1, .3)
-hipster.run_simulation_num(40, 10)
-hipster.graph()
+hipster.run_simulation_num(20, 10)
+#hipster.graph()
