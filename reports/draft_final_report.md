@@ -12,13 +12,17 @@ We start the simulation by randomly assigning a node product 1. From there each 
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is figure 1.
 We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of tau. We run this model on an Erdos-Renyi model and on a real Facebook data set (**fill in info about what the fb dataset is we are using**) just as Juul and Porter did in their experiment.
 
-FIGURE:
-	At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction) and plot it.
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/ReplicationT1.png)
+*FIGURE 1: A graph on the adoption fraction at each time step with tau equal to 1 and P hipster equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. The red line is the product 1 adoption fraction and the blue line is product 2. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*
 
+Figure 1 approximately matches the behavior expected from the network based on Juul and Porter’s paper (Fig 2). The steady state for both products is between 0.4 and 0.5, while for the Juul and Porter paper, both products reach a steady state value of 0.5. Since we’re not using the same exact data set as the paper and we see similar behavior as the paper, we can attribute this error to the difference in each data set. Figure 1 indicates
 To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of the percentage likelihood that a node will be a hipster and over different values of tau.
 
-FIGURE:
-	Sweep
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepT1.png)
+*FIGURE 2: Tau = 1. A graph of steady state adoption fractions of the model with tau equal to 1 and a sweep of P hipster values. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+
+If we compare Figure 2 to Juul and Porter’s Fig6a graph, we can see that the trends are similar. By the time P is equal to 0.2 the adoption fractions oscillate around 0.45. Juul and Porter’s graph shows a smoother line, but our values remain within the maximum and minimum values their graph bounds. We attribute the difference in values to the difference in data set. When tau is equal to 1, the likelihood that the hipster product (product 2) will overtake the conformist one is small when P<0.2, but is almost equivalent to the likelihood that the conformist product will be more popular when P>0.2.
+
 
 ## Extension:
 To extend on the work done by Juul and Porter, we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
