@@ -31,6 +31,7 @@ class Hipster:
         self.product_ratio = 0
         self.product_ratios = [self.product_ratio]
         self.hipsterexists = False
+        self.firstrun = True
         self.tau = tau
         self.nodes_dict = {}
         self.G = G
@@ -39,6 +40,7 @@ class Hipster:
         self.alltotalprods = []
         self.totalprod1sum = {}
         self.totalprod2sum = {}
+        self.master_dict= {}
 
     def flip(p):
         """Returns True with probability `p`."""
@@ -52,28 +54,38 @@ class Hipster:
             single_node_dict['H'] = np.random.choice([0, 1], 1, p=[self.p, 1-self.p])
             single_node_dict['S'] = 0
             self.nodes_dict[node] = single_node_dict
+        starting_node = int(np.random.choice(self.G.nodes(), 1))
+        self.nodes_dict[starting_node]['state'] = 1
+        self.nodes_dict[starting_node]['S'] = 1
+
+        for node in self.G.nodes():
+            node_dict = {0:[],1:0,2:0}
+            for neighbor in self.G[node]:
+                if self.nodes_dict[neighbor]['S']==1:
+                    node_dict[1] += 1
+                elif self.nodes_dict[neighbor]['S']==2:
+                    node_dict[2] += 2
+                else:
+                    node_dict[0].append(neighbor)
+            self.master_dict[node] = node_dict
+        self.master_dict['master'] = {0:len(self.G.nodes())-1,1:1,2:0}
+        #print(self.master_dict)
 
     def time_step(self):
-        self.totalprod1 = 0
-        self.totalprod2 = 0
         self.states_list = []
         self.stuff_changing = False
 
         for node in self.G.nodes():
-            neighbors_alive = 0
-            prod1 = 0
-            prod2 = 0
-            for neighbor in self.G.neighbors(node):
-                if self.nodes_dict[neighbor]['state'] == 1:
-                    neighbors_alive+=1
-                    if self.nodes_dict[neighbor]['S'] == 1:
-                        prod1+=1
-                    else:
-                        prod2+=1
+            
+            prod1 = self.master_dict[node][1]
+            prod2 = self.master_dict[node][2]
+            neighbors_alive = prod1+prod2  
+            
             if self.nodes_dict[node]['S'] == 1:
-                self.totalprod1 +=1
+                pass
             elif self.nodes_dict[node]['S'] == 2:
-                self.totalprod2 +=1
+                pass
+            
             #TODO fix so that it handles situation where len G.neighbors = 0
             elif neighbors_alive / len(self.G.neighbors(node)) >= self.nodes_dict[node]['threshold']:
                 if self.nodes_dict[node]['H'] == 1:
@@ -102,14 +114,34 @@ class Hipster:
 
                 self.states_list.append((node, product))
 
-        curr_product_ratio = self.totalprod2 / (self.totalprod2+self.totalprod1)
-        self.product_ratios.append(curr_product_ratio)
-        self.totalprods.append((self.totalprod1, self.totalprod2))
+        
 
         for item in self.states_list:
+            neighbors_list_dead = self.master_dict[item[0]][0]
+            if item[1] == 1:
+                self.master_dict['master'][1] += 1
+            elif item[1] == 2:
+                self.master_dict['master'][2] += 1
+            self.master_dict['master'][0] -= 1
+            for neighbor in self.G[item[0]]:
+                if item[1] == 1:
+                    self.master_dict[neighbor][1] += 1
+                    
+                elif item[1] == 2:
+                    self.master_dict[neighbor][2] += 1
+                index_item =self.master_dict[neighbor][0].index(item[0])
+                self.master_dict[neighbor][0].pop(index_item)
             self.nodes_dict[item[0]]['state'] = 1
             self.nodes_dict[item[0]]['S'] = item[1]
             self.stuff_changing = True
+
+        #print(self.master_dict['master'])
+        self.totalprod2 =self.master_dict['master'][2]
+        self.totalprod1 = self.master_dict['master'][1]
+        curr_product_ratio =  self.totalprod2/ (self.totalprod2+self.totalprod1)
+        #print(curr_product_ratio)
+        self.product_ratios.append(curr_product_ratio)
+        self.totalprods.append((self.totalprod1, self.totalprod2))
 
     def run_simulation_num(self, time, num):
         self.count = 0
@@ -117,15 +149,14 @@ class Hipster:
             self.totalprod1sum[i] = 0
             self.totalprod2sum[i] = 0
         for k in range(num):
+            self.master_dict = {}
             self.product_ratio = 0
             self.product_ratios = [self.product_ratio]
             self.hipsterexists = False
             self.nodes_dict = {}
             self.totalprods = [(1,0)]
             self.initialize_hipsters()
-            starting_node = int(np.random.choice(self.G.nodes(), 1))
-            self.nodes_dict[starting_node]['state'] = 1
-            self.nodes_dict[starting_node]['S'] = 1
+
             for i in range(time):
                 if i-self.tau < 0:
                     self.product_ratio = self.product_ratios[0]
@@ -156,7 +187,7 @@ class Hipster:
         prod1_ratios = ratios[0]
         prod2_ratios = ratios[1]
 
-        plt.plot(prod1_ratios, 'r--', prod2_ratios, 'bs')
+        plt.plot(prod1_ratios, 'r--', prod2_ratios, 'b--')
 
         plt.show()
 
@@ -167,5 +198,5 @@ hipster.run_simulation(10)
 hipster.graph()'''
 fb = read_graph('facebook_combined.txt')
 hipster = Hipster(fb, 1, .3)
-hipster.run_simulation_num(20, 10)
-#hipster.graph()
+hipster.run_simulation_num(20, 100)
+hipster.graph()
