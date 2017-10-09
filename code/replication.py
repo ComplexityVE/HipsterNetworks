@@ -54,7 +54,7 @@ class Hipster:
         for node in self.G.nodes():
             single_node_dict = {}
             single_node_dict['state'] = 0
-            single_node_dict['threshold'] = 1/33
+            single_node_dict['threshold'] = .2
             single_node_dict['H'] = np.random.choice([0, 1], 1, p=[1-self.p, self.p])
             single_node_dict['S'] = 0
             self.nodes_dict[node] = single_node_dict
@@ -79,18 +79,18 @@ class Hipster:
         self.stuff_changing = False
 
         for node in self.G.nodes():
-            
+
             prod1 = self.master_dict[node][1]
             prod2 = self.master_dict[node][2]
-            neighbors_alive = prod1+prod2  
-            
+            neighbors_alive = prod1+prod2
+
             if self.nodes_dict[node]['S'] == 1:
                 pass
             elif self.nodes_dict[node]['S'] == 2:
                 pass
-            
+
             #TODO fix so that it handles situation where len G.neighbors = 0
-            elif neighbors_alive / len(self.G.neighbors(node)) >= self.nodes_dict[node]['threshold']:
+            elif len(self.G.neighbors(node)) != 0 and neighbors_alive / len(self.G.neighbors(node)) >= self.nodes_dict[node]['threshold']:
                 if self.nodes_dict[node]['H'] == 1:
                     if not self.hipsterexists:
                         product = 2
@@ -117,7 +117,7 @@ class Hipster:
 
                 self.states_list.append((node, product))
 
-        
+
 
         for item in self.states_list:
             neighbors_list_dead = self.master_dict[item[0]][0]
@@ -129,7 +129,7 @@ class Hipster:
             for neighbor in self.G[item[0]]:
                 if item[1] == 1:
                     self.master_dict[neighbor][1] += 1
-                    
+
                 elif item[1] == 2:
                     self.master_dict[neighbor][2] += 1
                 index_item =self.master_dict[neighbor][0].index(item[0])
@@ -145,7 +145,7 @@ class Hipster:
         self.product_ratios.append(curr_product_ratio)
         self.totalprods.append((self.totalprod1, self.totalprod2))
 
-    def run_simulation_num(self, time, num):
+    def run_simulation_num(self, time, num, er=False):
         self.count = 0
         for i in range(time):
             self.totalprod1sum[i] = 0
@@ -153,6 +153,8 @@ class Hipster:
 
         mini_value = 0
         for k in range(num):
+            if er == True:
+                self.G = nx.erdos_renyi_graph(10000, 5/10000)
 
             self.master_dict = {}
             self.product_ratio = 0
@@ -161,7 +163,7 @@ class Hipster:
             self.nodes_dict = {}
             self.totalprods = [(1,0)]
             self.initialize_hipsters()
-            
+
             firsti = True
             for i in range(time):
                 if i-self.tau < 0:
@@ -172,12 +174,12 @@ class Hipster:
                 self.totalprod1sum[i]+=self.totalprods[i][0]
                 self.totalprod2sum[i]+=self.totalprods[i][1]
                 if self.master_dict['master'][0] == 0 and firsti == True:
-                
+
                     if i > mini_value:
                         mini_value = i
                     firsti = False
             self.alltotalprods.append(self.totalprods)
-            
+
 
         '''self.current_t_prod1 = []
         self.current_t_prod2 = []
@@ -188,8 +190,9 @@ class Hipster:
                 self.current_t_prod1.append(totalprods[k][0])
                 self.current_t_prod2.append(totalprods[k][1])'''
 
-        self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(mini_value+1)]
-        self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(mini_value+1)]
+        self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(time)]
+        print(self.prod1_attimes)
+        self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(time)]
 
     def get_ratios(self):
         prod1_ratios = [x/len(self.G.nodes()) for x in self.prod1_attimes]
@@ -216,3 +219,8 @@ fb = read_graph('facebook_combined.txt')
 hipster = Hipster(fb, 1, .0)
 hipster.run_simulation_num(20, 10)
 hipster.graph()'''
+if __name__ == '__main__':
+    graph = nx.erdos_renyi_graph(10000, 5/10000)
+    hipster = Hipster(graph, 1, .3)
+    hipster.run_simulation_num(20, 200)
+    hipster.graph()
