@@ -29,11 +29,18 @@ If we compare Figure 2 to Juul and Porter’s Fig6a graph, we can see that the t
 
 When we compare Figure 3 to Juul and Porter's Fig6d graph, the trends are also similar. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a small window (0.2<p<0.5) in which Product 2 will end up more popular than Product 1. This indicates that with a slight delay in knowledge, there cannot be a majority of hipsters in the network.
 
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepT6.png)
+*Figure 4: Tau = 6. A graph of steady state adoption fractions of the model with tau equal to 4 and a sweep of P hipster values. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+
+When we compare Figure 4 to Juul and Porter's Fig6f graph, the trends are similar. Product 2 overtakes Product 1 early on and then the adoption fraction slowly decreases but Product 1 never regains popularity. The graph indicates that there is a large window (0.2<p) in which Product 2 will end up more popular than Product 1. This indicates that with a large delay in knowledge, there can be a majority of hipsters in the network.
+
+Figure 3 shows that Product 2 overtakes Product 1 in popularity soon, and with a tau valu eof 4, the hipsters become aware of it later so they still adopt product 2 for several time steps before adopting Product 1 again (this is why Product 1 becomes popular again). Figure 4 shows that Product 2 overtakes Product 1 in popularity quickly again, but with a tau value of 6, the hipsters' knowledge about the network is so delayed that they continue to adopt Product 2 even though it's popular for a long time, which is why Product 1 never becomes popular again.
 
 ## Extension:
 To extend on the work done by Juul and Porter, we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
 
 ## Conclusion
+The replication of the Juul and Porter paper on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actualy popular.
 
 ## Bibliography
 [Hipsters on Networks: How a Small Group of Individuals Can Lead to an Anti-Establishment Majority](https://arxiv.org/pdf/1707.07187.pdf),
