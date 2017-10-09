@@ -24,6 +24,7 @@ def read_graph(filename):
     G = nx.Graph()
     array = np.loadtxt(filename, dtype=int)
     G.add_edges_from(array)
+    G = max(nx.connected_component_subgraphs(G), key=len)
     return G
 
 class Hipster:
@@ -42,6 +43,9 @@ class Hipster:
         self.totalprod2sum = {}
         self.master_dict= {}
 
+        self.end_ratios_prod1 = []
+        self.end_ratios_prod2 = []
+
     def flip(p):
         """Returns True with probability `p`."""
         return np.random.random() < p
@@ -51,13 +55,12 @@ class Hipster:
             single_node_dict = {}
             single_node_dict['state'] = 0
             single_node_dict['threshold'] = 1/33
-            single_node_dict['H'] = np.random.choice([0, 1], 1, p=[self.p, 1-self.p])
+            single_node_dict['H'] = np.random.choice([0, 1], 1, p=[1-self.p, self.p])
             single_node_dict['S'] = 0
             self.nodes_dict[node] = single_node_dict
         starting_node = int(np.random.choice(self.G.nodes(), 1))
         self.nodes_dict[starting_node]['state'] = 1
         self.nodes_dict[starting_node]['S'] = 1
-
         for node in self.G.nodes():
             node_dict = {0:[],1:0,2:0}
             for neighbor in self.G[node]:
@@ -135,7 +138,6 @@ class Hipster:
             self.nodes_dict[item[0]]['S'] = item[1]
             self.stuff_changing = True
 
-        #print(self.master_dict['master'])
         self.totalprod2 =self.master_dict['master'][2]
         self.totalprod1 = self.master_dict['master'][1]
         curr_product_ratio =  self.totalprod2/ (self.totalprod2+self.totalprod1)
@@ -148,7 +150,10 @@ class Hipster:
         for i in range(time):
             self.totalprod1sum[i] = 0
             self.totalprod2sum[i] = 0
+
+        mini_value = 0
         for k in range(num):
+
             self.master_dict = {}
             self.product_ratio = 0
             self.product_ratios = [self.product_ratio]
@@ -156,7 +161,8 @@ class Hipster:
             self.nodes_dict = {}
             self.totalprods = [(1,0)]
             self.initialize_hipsters()
-
+            
+            firsti = True
             for i in range(time):
                 if i-self.tau < 0:
                     self.product_ratio = self.product_ratios[0]
@@ -165,7 +171,14 @@ class Hipster:
                 self.time_step()
                 self.totalprod1sum[i]+=self.totalprods[i][0]
                 self.totalprod2sum[i]+=self.totalprods[i][1]
+                if self.master_dict['master'][0] == 0 and firsti == True:
+                
+                    if i > mini_value:
+                        mini_value = i
+                    firsti = False
             self.alltotalprods.append(self.totalprods)
+            
+
         '''self.current_t_prod1 = []
         self.current_t_prod2 = []
         self.prod1_attimes = []
@@ -174,8 +187,9 @@ class Hipster:
             for totalprods in self.alltotalprods:
                 self.current_t_prod1.append(totalprods[k][0])
                 self.current_t_prod2.append(totalprods[k][1])'''
-        self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(time)]
-        self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(time)]
+
+        self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(mini_value+1)]
+        self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(mini_value+1)]
 
     def get_ratios(self):
         prod1_ratios = [x/len(self.G.nodes()) for x in self.prod1_attimes]
@@ -183,20 +197,22 @@ class Hipster:
         return [prod1_ratios, prod2_ratios]
 
     def graph(self):
+        print('done')
         ratios = self.get_ratios()
         prod1_ratios = ratios[0]
         prod2_ratios = ratios[1]
 
         plt.plot(prod1_ratios, 'r--', prod2_ratios, 'b--')
-
+        plt.ylabel('Adoption Fraction')
+        plt.xlabel('Time Step')
         plt.show()
 
 
 '''graph = nx.watts_strogatz_graph(100, 15, 0)
 hipster = Hipster(graph, 1, .9)
 hipster.run_simulation(10)
-hipster.graph()'''
-fb = read_graph('facebook_combined.txt')
-hipster = Hipster(fb, 1, .3)
-hipster.run_simulation_num(20, 100)
 hipster.graph()
+fb = read_graph('facebook_combined.txt')
+hipster = Hipster(fb, 1, .0)
+hipster.run_simulation_num(20, 10)
+hipster.graph()'''
