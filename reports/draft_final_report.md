@@ -7,9 +7,10 @@ Different people adopt ideas and products in a social network for different reas
 ## Introduction
 
 ## Replication
-We replicate the experiment done by Juul and Porter. We create a network based on the Facebook Data. We assign to each node four values that will determine the behavior of each node and the spread of the products throughout the network. These four values are: the status of the node (active or inactive); a threshold value phi that determines what percentage of a node’s neighbors need to be active for it to become active; a value Hi that designates whether the node is hipster or conformist (0 for conformists and 1 for hipster); the probability that any given node is a hipster; and a value P that designates the product the node has adopted (0 for no product, 1 for product 1, or 2 for product 2).
+We replicate the experiment done by Juul and Porter. We create a network based on the Facebook Data. We assign four values to each node that will determine each node's behavior. These four values are: the status of the node (active or inactive); a threshold value phi that determines what percentage of a node’s neighbors need to be active for it to become active; a value Hi that designates whether the node is hipster or conformist (0 for conformists and 1 for hipster); the probability that any given node is a hipster; and a value P that designates the product the node has adopted (0 for no product, 1 for product 1, or 2 for product 2).
 We start the simulation by randomly assigning a node product 1. From there each time step happens in two stages. Synchronously, each node updates its activity status by evaluating its neighbors and determining if there are enough that are active for that node to become active (threshold value). After, each newly activated node evaluates which product it should adopt based on its identity (hipster or conformist). A hipster node will look at the adoption fraction of the network at timestep t-tau, where t is the current time step and tau is the time delay. Once a node becomes active and adopts a product, the status of that node and the product it adopts do not change.
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is figure 1.
+We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of tau. We run this model on an Erdos-Renyi model and on a real Facebook data set (**fill in info about what the fb dataset is we are using**) just as Juul and Porter did in their experiment.
 
 FIGURE:
 	At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction) and plot it.
@@ -20,8 +21,7 @@ FIGURE:
 	Sweep
 
 ## Extension:
-Barabasi and Albert:
-playing around with values and trying to break it:
+To extend on the work done by Juul and Porter, we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
 
 ## Conclusion
 
