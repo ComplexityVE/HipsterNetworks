@@ -70,4 +70,6 @@ This paper discusses how identifying the "critical components of a given communi
 
 This paper discusses the interplay of node fitness or the qualitative features of nodes which make them more likely to gain neighbors with preferential attachment or the idea that nodes which have lots of neighbors will gain neighbors at a rate faster than those that have fewer. Specifically, the authors discuss how preferential attachment and node fitness interplay in a Facebook wall-post network. They make use of a PAFit model and a Barabasi and Albert model. The purpose of the paper is to explain the coexistence of node fitness and preferential attachment and discuss how node fitness actually dominates preferential attachment. The authors analyze the model and compare it to a real world network of data on Facebook user wall posts. The real world curves agree well with the theoretical curves produced by their model. The model and output graphs support the idea that node fitness dominates preferential attachment in complex networks.
 
-4. Dataset collected from [https://snap.stanford.edu/data/facebook_combined.txt.gz](https://snap.stanford.edu/data/facebook_combined.txt.gz)
+4. Dataset collected from [SNAP](https://snap.stanford.edu/data/egonets-Facebook.html)
+Leskovec, Jure, Stanford University(2012)
+[https://snap.stanford.edu/data/facebook_combined.txt.gz](https://snap.stanford.edu/data/facebook_combined.txt.gz)
