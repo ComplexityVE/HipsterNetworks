@@ -46,13 +46,20 @@ Figure 3 shows that Product 2 overtakes Product 1 in popularity soon, and with a
 ## Extension:
 To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
 
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/BAT3.png)
 *Figure 6: A graph of the adoption fraction vs P values on a Barabasi and Albert model. Tau is 3. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+
+(Needs analysis of extension)
 
 We ran a sweep of threshold values from 1/20, to 1/50 on the Facebook model to investigate the impact of the threshold on the spread and found x (to be filled out).
 
+(Graph to be generated)
 *Figure 7: A graph of the adoption fraction vs threshold values. Tau is 3, P is 0.3. For each threshold value, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
 
+(Needs analysis of extension)
+
 ## Conclusion
+(To be edited with extension results)
 The replication of the Juul and Porter paper([1](#Bibliography)) on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actualy popular.
 
 ## Bibliography
