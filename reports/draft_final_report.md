@@ -46,7 +46,7 @@ Figure 3 shows that Product 2 overtakes Product 1 in popularity soon, and with a
 ## Extension:
 To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
 
-![](https://github.com/Elepert/HipsterNetworks/blob/master/images/BAT3.png)
+(Graph to be generated)
 *Figure 6: A graph of the adoption fraction vs P values on a Barabasi and Albert model. Tau is 3. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
 
 (Needs analysis of extension)
