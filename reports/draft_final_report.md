@@ -5,7 +5,7 @@
 Different people adopt ideas and products in a social network for different reasons. In this paper, we use Python to explore the influence of "hipsters" on "conformists." We consider "hipsters" to be people in a network who adopt the idea or product that is least popular at some given prior time in the simulation and "conformists" to be people who adopt the idea that most of their neighbors have adopted. We start out with one idea that "conformists" adopt and one idea that will originally only be adopted by "hipsters." We soon see that the idea that starts out only with the "hipsters" can gain almost equivalent popularity to the idea that started only with "conformists" with certain values of starting conditions and parameters.
 
 ## Introduction
-We are replicating and extending the experiment done by Juul and Porter. They analyzed "hipsterness" in a network and the effect it had on ideas spreading throughout the network. A hipster adopts to the least popular idea in a network, while a conformist adopts the most popular product in its immediate relations.
+We are replicating and extending the experiment done by Juul and Porter. They analyzed "hipsterness" in a network and the effect it had on ideas spreading throughout the network. A hipster adopts to the least popular idea in a network, while a conformist adopts the most popular product in its immediate relations. Juul and Porter were interested in the implications the spread of ideas had on networks particularly elections, and how many anti-establishment nodes (hipsters) needed to be present in a network for the anti-establishment idea to gain popularity.
 
 ## Replication
 We replicate the experiment done by Juul and Porter. We create a network based on the Facebook Data. We assign four values to each node that will determine each node's behavior. These four values are: the status of the node (active or inactive); a threshold value phi that determines what percentage of a node’s neighbors need to be active for it to become active; a value Hi that designates whether the node is hipster or conformist (0 for conformists and 1 for hipster); the probability that any given node is a hipster; and a value P that designates the product the node has adopted (0 for no product, 1 for product 1, or 2 for product 2).
@@ -43,6 +43,12 @@ Figure 3 shows that Product 2 overtakes Product 1 in popularity soon, and with a
 
 ## Extension:
 To extend on the work done by Juul and Porter, we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
+
+*Figure 6: A graph of the adoption fraction vs P values on a Barabasi and Albert model. Tau is 3. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+
+We ran a sweep of threshold values from 1/20, to 1/50 on the Facebook model to investigate the impact of the threshold on the spread and found x (to be filled out).
+
+*Figure 7: A graph of the adoption fraction vs threshold values. Tau is 3, P is 0.3. For each threshold value, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
 
 ## Conclusion
 The replication of the Juul and Porter paper on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actualy popular.
