@@ -16,13 +16,13 @@ There is very little interpretation for the experiment. It would be nice to have
 Figures 2.1 and 2.2 look the same qualitatively but they are not quantitatively similar. They write that they were replicating it qualitatively, but they only write this: "to replicate Figure 2.1 up to 50 time steps as shown in Figure 2.2." as an interpretation of the results. It would be good to have some explanation as to why they are not quantitatively similar. I understand that it was run for 50 times steps, but as a reader I would expect to see the first half of the paper's graph rather than different numbers entirely.
 
 #### Extension: Does the report explain an extension to the original experiment clearly?  Is it a sensible extension in the sense that it has the potential to answer an interesting question that the original experiment did not answer?
-I had to go back to look at what the questions were by the time I reached the extension. It would be good to reiterate the relationship between the extension and the original question. The extension seems sensible in terms of giving some interesting insight. There isn't currently any analysis of the extension results, but as long as those reveal some insight, the extension is good.
+I had to go back to look at what the questions were by the time I reached the extension. It would be good to reiterate the relationship between the extension and the original question. The extension seems sensible in terms of giving some interesting insight. There isn't currently any analysis of the extension results, but as long as those reveal some insight, the extension should be good.
 
 #### Progress: Is the team roughly where they should be at this point, with a replication that is substantially complete and an extension that is clearly defined and either complete or nearly so?
 The replication seems to be mostly complete (should add interpretation). What the extension entails is clear and looks like it is part of the way through.
 
 #### Presentation: Is the report written in clear, concise, correct language?  Is it consistent with the audience and goals of the report?  Does it violate any of the recommendations in my style guide?
-There is not a lot of background on the SIS model. As a reader who knows about the class, I still don't know what an SIS model is (I can infer from the papter), so a short explanation beyond what mathematical terms mean might be useful. 
+There is not a lot of background on the SIS model. As a reader who knows about the class, I still don't know what an SIS model is (I can infer from the paper), so a short explanation beyond what mathematical terms mean might be useful. 
 There isn't much explicitly written about motivation but the question is interesting. Perhaps there isn't much more that needs to be written.
 
 #### Mechanics: Is the report in the right directory with the right file name?  Is it formatted professionally in Markdown?  Does it include a meaningful title and the full names of the authors?  Is the bibliography in an acceptable style? 
