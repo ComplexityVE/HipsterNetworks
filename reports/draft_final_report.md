@@ -13,7 +13,7 @@ We replicate the experiment done by Juul and Porter([1](#Bibliography)). We crea
 We start the simulation by randomly assigning a node product 1. From there each time step happens in two stages. Synchronously, each node updates its activity status by evaluating its neighbors and determining if there are enough that are active for that node to become active (threshold value). After, each newly activated node evaluates which product it should adopt based on its identity (hipster or conformist). A hipster node will look at the adoption fraction of the network at timestep t-tau, where t is the current time step and tau is the time delay. Once a node becomes active and adopts a product, the status of that node and the product it adopts do not change.
 
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is figure 1.
-We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of tau. We run this model on an Erdos-Renyi model and on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
+We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of tau. We run this model on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/ReplicationT1.png)
 *FIGURE 1: A graph on the adoption fraction at each time step with tau equal to 1 and P hipster equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. The red line is the product 1 adoption fraction and the blue line is product 2. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*
@@ -46,13 +46,20 @@ Figure 3 shows that Product 2 overtakes Product 1 in popularity soon, and with a
 ## Extension:
 To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different starting conditions and values for percentage of hipsters, tau values, and threshold values.
 
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/realBAT3.png)
 *Figure 6: A graph of the adoption fraction vs P values on a Barabasi and Albert model. Tau is 3. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+
+(Needs analysis of extension)
 
 We ran a sweep of threshold values from 1/20, to 1/50 on the Facebook model to investigate the impact of the threshold on the spread and found x (to be filled out).
 
+(Graph to be generated)
 *Figure 7: A graph of the adoption fraction vs threshold values. Tau is 3, P is 0.3. For each threshold value, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
 
+(Needs analysis of extension)
+
 ## Conclusion
+(To be edited with extension results)
 The replication of the Juul and Porter paper([1](#Bibliography)) on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actualy popular.
 
 ## Bibliography
