@@ -4,7 +4,7 @@
 
 ## Question:
 ### What is your understanding of the experiment the team is replicating?  What question does it answer?  How clear is the team's explanation?
-The experiment this team is replicating investigated the survival probability of viruses over a range of time. It answers the question of how prevalent epidemic spreading affects various network topologies. It also answers the question of what the survival probability of these viruses is over time for various spreading rates. The setup and introduction of the team's question seems to me to be fairly clear. I think they drift away from the question at a hand bit later in the paper when they start to focus more on whether or not the spreading of the disease reaches a steady state, a related (but different) question of interest. 
+The experiment this team is replicating investigated the survival probability of viruses over a range of time. It answers the question of how prevalent epidemic spreading affects various network topologies. It also answers the question of what the survival probability of these viruses is over time for various spreading rates. The setup and introduction of the team's question seems to me to be fairly clear. I think they drift away from the question at hand bit later in the paper when they start to focus more on whether or not the spreading of the disease reaches a steady state, a related (but different) question of interest. 
 
 ## Methodology:
 ### Do you understand the methodology?  Does it make sense for the question?  Are there limitations you see that the team did not address?
