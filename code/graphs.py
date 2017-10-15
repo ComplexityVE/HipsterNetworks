@@ -19,7 +19,7 @@ def sweep(tau):
     pplot = list(ps)
     for p in ps:
         hipster = Hipster(graph, tau, p)
-        hipster.run_simulation_num(20, 50, er=True)
+        hipster.run_simulation_num(20, 50, er=False,ba=False)
         ratios = hipster.get_ratios()
         end1_values.append(ratios[0][-1])
         end2_values.append(ratios[1][-1])
@@ -33,4 +33,27 @@ def sweep(tau):
     print('show')
     plt.show()
 
-sweep(3)
+
+
+def threshold_sweep(tau):
+    end1_values = []
+    end2_values = []
+    ts = np.arange(0, 0.05, .01)
+    pplot = list(ts)
+    for t in ts:
+        hipster = Hipster(graph, tau, 0.04, t)
+        hipster.run_simulation_num(20, 50, er=False, ba=False)
+        ratios = hipster.get_ratios()
+        end1_values.append(ratios[0][-1])
+        end2_values.append(ratios[1][-1])
+        print('pass done: ' + str(t))
+    print('end1_values: '+str(end1_values))
+    print('end2_values: '+str(end2_values))
+    plt.plot(pplot, end1_values, 'r--')
+    plt.plot(pplot, end2_values, 'b--')
+    plt.xlabel('Threshold')
+    plt.ylabel('Adoption Fraction at Steady State')
+    print('show')
+    plt.show()
+
+threshold_sweep(5)

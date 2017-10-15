@@ -24,11 +24,10 @@ def read_graph(filename):
     G = nx.Graph()
     array = np.loadtxt(filename, dtype=int)
     G.add_edges_from(array)
-    G = max(nx.connected_component_subgraphs(G), key=len)
     return G
 
 class Hipster:
-    def __init__(self, G, tau, p):
+    def __init__(self, G, tau, p, threshold=1/33):
         self.product_ratio = 0
         self.product_ratios = [self.product_ratio]
         self.hipsterexists = False
@@ -45,6 +44,7 @@ class Hipster:
 
         self.end_ratios_prod1 = []
         self.end_ratios_prod2 = []
+        self.threshold = threshold
 
     def flip(p):
         """Returns True with probability `p`."""
@@ -54,7 +54,7 @@ class Hipster:
         for node in self.G.nodes():
             single_node_dict = {}
             single_node_dict['state'] = 0
-            single_node_dict['threshold'] = .2
+            single_node_dict['threshold'] = self.threshold
             single_node_dict['H'] = np.random.choice([0, 1], 1, p=[1-self.p, self.p])
             single_node_dict['S'] = 0
             self.nodes_dict[node] = single_node_dict
@@ -145,7 +145,7 @@ class Hipster:
         self.product_ratios.append(curr_product_ratio)
         self.totalprods.append((self.totalprod1, self.totalprod2))
 
-    def run_simulation_num(self, time, num, er=False):
+    def run_simulation_num(self, time, num, er=False, ba=False):
         self.count = 0
         for i in range(time):
             self.totalprod1sum[i] = 0
@@ -155,6 +155,8 @@ class Hipster:
         for k in range(num):
             if er == True:
                 self.G = nx.erdos_renyi_graph(10000, 5/10000)
+            elif ba == True:
+                self.G = nx.barabasi_albert_graph(4000, 22)
 
             self.master_dict = {}
             self.product_ratio = 0
@@ -178,8 +180,9 @@ class Hipster:
                     if i > mini_value:
                         mini_value = i
                     firsti = False
+            #print(self.master_dict['master'])
             self.alltotalprods.append(self.totalprods)
-
+            
 
         '''self.current_t_prod1 = []
         self.current_t_prod2 = []
@@ -191,7 +194,6 @@ class Hipster:
                 self.current_t_prod2.append(totalprods[k][1])'''
 
         self.prod1_attimes = [self.totalprod1sum[i]/num for i in range(time)]
-        print(self.prod1_attimes)
         self.prod2_attimes = [self.totalprod2sum[i]/num for i in range(time)]
 
     def get_ratios(self):
@@ -220,7 +222,13 @@ hipster = Hipster(fb, 1, .0)
 hipster.run_simulation_num(20, 10)
 hipster.graph()'''
 if __name__ == '__main__':
-    graph = nx.erdos_renyi_graph(10000, 5/10000)
+    graph = nx.barabasi_albert_graph(4000, 22)
+    degrees = graph.degree()
+    sum_of_edges = sum(degrees.values())
+    average = sum_of_edges/len(graph.nodes())
+    print(average)
+    #graph = nx.erdos_renyi_graph(10000, 5/10000)
+    #graph = read_graph('facebook_combined.txt')
     hipster = Hipster(graph, 1, .3)
-    hipster.run_simulation_num(20, 200)
+    hipster.run_simulation_num(20, 10)
     hipster.graph()
