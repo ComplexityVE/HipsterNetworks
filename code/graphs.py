@@ -57,4 +57,4 @@ def threshold_sweep(tau):
     print('show')
     plt.show()
 
-sweep(1)
+sweep(4)
