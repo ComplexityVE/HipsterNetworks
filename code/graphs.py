@@ -9,7 +9,7 @@ hipster = Hipster(fb, 1, .3)
 hipster.run_simulation_num(20, 10)
 hipster.graph()'''
 # fb = read_graph('facebook_combined.txt')
-graph = nx.erdos_renyi_graph(10000, 5/10000)
+graph = nx.erdos_renyi_graph(5000, 5/5000)
 
 
 def sweep(tau):
@@ -18,8 +18,8 @@ def sweep(tau):
     ps = np.arange(0, 1, .05)
     pplot = list(ps)
     for p in ps:
-        hipster = Hipster(graph, tau, p)
-        hipster.run_simulation_num(20, 50, er=False,ba=True)
+        hipster = Hipster(graph, tau, p, threshold=.2)
+        hipster.run_simulation_num(20, 50)
         ratios = hipster.get_ratios()
         end1_values.append(ratios[0][-1])
         end2_values.append(ratios[1][-1])
@@ -56,4 +56,4 @@ def threshold_sweep(tau):
     print('show')
     plt.show()
 
-threshold_sweep(5)
+sweep(4)
