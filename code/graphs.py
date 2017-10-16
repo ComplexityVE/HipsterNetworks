@@ -38,7 +38,7 @@ def sweep(tau):
 def threshold_sweep(tau):
     end1_values = []
     end2_values = []
-    ts = np.arange(0, 1, .1)
+    ts = np.arange(0, 0.35, .02)
     pplot = list(ts)
     for t in ts:
         hipster = Hipster(graph, tau, 0.04, t)
