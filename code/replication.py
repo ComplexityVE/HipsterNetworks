@@ -154,7 +154,7 @@ class Hipster:
         mini_value = 0
         for k in range(num):
             if er == True:
-                self.G = nx.erdos_renyi_graph(10000, 5/10000)
+                self.G = nx.erdos_renyi_graph(5000, 5/5000)
             elif ba == True:
                 self.G = nx.barabasi_albert_graph(4000, 22)
 
