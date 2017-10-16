@@ -28,7 +28,7 @@ Figure 1 approximately matches the behavior expected from the network based on J
 To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of the percentage likelihood that a node will be a hipster and over different values of τ.
 
 | ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png) | ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png) |
-|:--:|:----:|
+|--|-------|
 *FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 and a sweep of P hipster values. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.* | *Figure 2b): Juul and Porter graph of the steady state adoption fractions of their model with τ = 1.*|
 
 If we compare Figure 2 to Juul and Porter’s Fig6a graph, we can see that the trends are similar. By the time P is equal to 0.2 the adoption fractions oscillate around 0.45. Juul and Porter’s graph shows a smoother line, but our values remain within the maximum and minimum values their graph bounds. We attribute the difference in values to the difference in data set. When τ is equal to 1, the likelihood that the hipster product (product 2) will overtake the conformist one is small when P<0.2, but is almost equivalent to the likelihood that the conformist product will be more popular when P>0.2. This means that when hipsters have current knowledge about the products spreading throughout network as a whole, there is little advantage given to either Product 1 or 2.

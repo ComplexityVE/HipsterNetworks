@@ -182,7 +182,6 @@ class Hipster:
                     firsti = False
             #print(self.master_dict['master'])
             self.alltotalprods.append(self.totalprods)
-            
 
         '''self.current_t_prod1 = []
         self.current_t_prod2 = []
@@ -207,7 +206,9 @@ class Hipster:
         prod1_ratios = ratios[0]
         prod2_ratios = ratios[1]
 
-        plt.plot(prod1_ratios, 'r--', prod2_ratios, 'b--')
+        plt.plot(prod1_ratios, 'r--', label='Product 1')
+        plt.plot( prod2_ratios, 'b--', label='Product 2')
+        plt.legend()
         plt.ylabel('Adoption Fraction')
         plt.xlabel('Time Step')
         plt.show()
