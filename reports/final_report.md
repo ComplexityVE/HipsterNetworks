@@ -19,7 +19,7 @@ We start the simulation by determining which nodes are conformists and which nod
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is figure 1.
 We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of τ. We run this model on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">) | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="150%">) |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="150%">|
 |--|-------|
 *FIGURE 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. The red line is the product 1 adoption fraction and the blue line is product 2. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*|*Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
 
@@ -27,25 +27,25 @@ Figure 1a approximately matches the behavior expected from the network based on 
 
 To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of the percentage likelihood that a node will be a hipster and over different values of τ.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png" width="70%">) | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png">) |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png" width="150%">|
 |--|-------|
 *FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 and a sweep of P hipster values. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.* | *Figure 2b): Juul and Porter graph of the steady state adoption fractions of their model with τ = 1.*|
 
 If we compare Figure 2 to Juul and Porter’s Fig6a graph, we can see that the trends are similar. By the time P is equal to 0.2 the adoption fractions oscillate around 0.45. Juul and Porter’s graph shows a smoother line, but our values remain within the maximum and minimum values their graph bounds. We attribute the difference in values to the difference in data set. When τ is equal to 1, the likelihood that the hipster product (product 2) will overtake the conformist one is small when P<0.2, but is almost equivalent to the likelihood that the conformist product will be more popular when P>0.2. This means that when hipsters have current knowledge about the products spreading throughout network as a whole, there is little advantage given to either Product 1 or 2. When the steady state is reached in our graphs there is an adoption fraction of about 40% for each product whereas in the original graph there was an adoption fraction of about 50% for each of the two products at steady state. This is because we used a different Facebook data set in which some of the nodes are isolated and not connected to the larger network. This means that there will never be enough nodes active around them for them to become activated. Because some of the nodes in our data set never become activated the adoption fractions of each product do not necessarily add up to 1 at steady state.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT4.png" width="70%">) | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT4.png">) |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT4.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT4.png" width="150%"> |
 |--|-------|
 |*Figure 3a) τ = 4. A graph of steady state adoption fractions of the model with τ = 4 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure3b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 4.*|
 
 When we compare Figure 3a to Juul and Porter's graph (Fig 3b), the trends are also similar. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a small window (0.2< p <0.5) in which Product 2 will end up more popular than Product 1. This indicates that with a delay in knowledge of four time steps, there cannot be a majority of hipsters in the network.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT5.png" width="70%">) | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT5.png">) |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT5.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT5.png" width="150%"> |
 |--|-------|
 |*Figure 4a) τ = 5. A graph of steady state adoption fractions of the model with τ = 5 and a sweep of p  values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 4b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 5.*|
 
 When we compare Figure 3a to Juul and Porter's graph (Fig 3b), the trends are  similar. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a window (0.2< p <0.65) in which Product 2 will end up more popular than Product 1. This indicates that with a delay in knowledge of five time steps, there Product 2 is most successful when there is a slight minority or majority of hipsters in the network, but not when there is a large disparity in either direction.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT6.png" width="70%">) | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT6.png">) |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT6.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT6.png" width="150%"> |
 |--|-------|
 |*Figure 5a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 6.*|
 
