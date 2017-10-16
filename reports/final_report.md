@@ -66,8 +66,9 @@ We ran a sweep of threshold values from 1/20, to 1/50 on the Facebook model to i
 (Needs analysis of extension)
 
 ## Conclusion
-(To be edited with extension results)
 The replication of the Juul and Porter paper([1](#Bibliography)) on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actualy popular.
+
+Additionally, we learned that "hipsters" have an even larger effect when considered as part of a Barabasi and Albert model and we suspect that the reason for the increased influence of hipsters on these types of networks has to do with the increase in preferential attachment. We also learned that with very small threshold values, neither product will gain popularity because the lack of active neighbors will result in all nodes not becoming active. This makes sense in that neighborhoods which are not politically active with people who are stubborn (represented by nodes with high threshold values who need a very high percentage of active neighbors for themselves to become active) will generally not become politically active and neither idea or product will become active. 
 
 ## Bibliography
 1. [Hipsters on Networks: How a Small Group of Individuals Can Lead to an Anti-Establishment Majority](https://arxiv.org/pdf/1707.07187.pdf),
