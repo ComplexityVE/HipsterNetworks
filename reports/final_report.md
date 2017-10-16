@@ -67,7 +67,7 @@ In our investigation of Barabasi and Albert models we learn that the anti establ
 
 We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P3.png"> |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P3.png"> |
 |--|-------|
 | *Figure 5a) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
