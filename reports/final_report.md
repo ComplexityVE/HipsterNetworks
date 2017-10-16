@@ -71,10 +71,11 @@ To extend on the work done by Juul and Porter([1](#Bibliography)), we also run t
 
 In our investigation of Barabasi and Albert models we learn that the anti establishment "hipster" nodes in fact have an even larger impact than they do on the regular Facebook data. This is probably because Barabasi and Albert models are created with preferential attachment in mind, meaning that when a hipster node is a hub node, it has a large impact on the network. Certain nodes have high concentrations of neighbors, meaning one hipster can have a much larger impact than they would if they had fewer neighbors. As can be seen in the above graph, we only need about a 20% probability of hipsters for product 2 to always win out over product 1. This is different from the Facebook graph where product 2 was gaining popularity when the probability of hipsters was between 20% and 40% but not when it was over 40%.
 
-We ran a sweep of threshold values (φ) from 1/20, to 1/50 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread and found x (to be filled out).
+We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread.
 
-(Graph to be generated)
-*Figure 7: A graph of the adoption fraction vs threshold values. τ = 3, P is 0.3. For each threshold value, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state. Product 1 is in red and product 2 is in blue.*
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P3.png"> |
+|--|-------|
+| *Figure 7a) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 7b) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
 (Needs analysis of extension)
 
@@ -89,6 +90,6 @@ Additionally, we learned that "hipsters" have an even larger effect when conside
 
 The authors analyzed the impact of non conformists on two competing products by using a hipster threshold model and examining it in different types of networks including a Erdos-Renyi network. They were looking into how ideas that originated in a small subpopulation can spread to a large fraction of the nodes in a network. In this theoretical system there are multiple competing products and anti conformists spreading unusual products to the majority. After developing this model, the authors mathematically analyzed the conclusions and simulated the model on various synthetic networks. This model is interesting because it shows how anti establishment forces can gain power in politics and society. It also shows how unexpected parties, like Donald Trump in the most recent U.S. presidential election, might win elections and take office. There was not much validation of the model given in this paper, but it did draw some interesting conclusions. The results of the experiment show that even with a small number of non conformists, the products that originate with the non conformists or "hipsters" can become comparably or even more popular than other products. This led the authors to conclude that the anti establishment can in fact have a very large impact on the majority in a network.
 
-4. Dataset collected from [SNAP](https://snap.stanford.edu/data/egonets-Facebook.html)
+2. Dataset collected from [SNAP](https://snap.stanford.edu/data/egonets-Facebook.html)
 Leskovec, Jure, Stanford University(2012)
 [https://snap.stanford.edu/data/facebook_combined.txt.gz](https://snap.stanford.edu/data/facebook_combined.txt.gz)
