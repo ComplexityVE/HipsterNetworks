@@ -12,7 +12,7 @@ We replicate the experiment done by Juul and Porter([1](#Bibliography)). We crea
 
 the probability that any given node is a hipster;
 
-We assign four values to each node that will determine each node's behavior. These four values are: the status of the node (active or inactive); a threshold value φ that determines what percentage of a node’s neighbors need to be active for it to become active; a value H<sub>i that designates whether the node is hipster or conformist (0 for conformists and 1 for hipster); and a value P that designates the product the node has adopted (0 for no product, 1 for product 1, or 2 for product 2). 
+We assign four values to each node that will determine each node's behavior. These four values are: the status of the node (active or inactive); a threshold value φ that determines what percentage of a node’s neighbors need to be active for it to become active; a value H<sub>i<sub> that designates whether the node is hipster or conformist (0 for conformists and 1 for hipster); and a value P that designates the product the node has adopted (0 for no product, 1 for product 1, or 2 for product 2). 
   
 Nodes all start out in an inactive state. This is similar to how people generally all start out be politically inactive if none or very few of their neighbors are politically active, but the more someone is surrounded by politically active people, the more likely that person is to become active themselves. In this model, a node becomes active when a percentage of its neighbors greater than its φ value are active. At this point in time, the newly activated node adopts a product (or idea, in the political sense) and then never changes. 
 
