@@ -65,8 +65,9 @@ There needs to be at least 20% of the network to be hipster nodes for product 2 
 
 To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different φ (threshold) values. We are interested in seeing if anti-establishment nodes play as large a role in a Barabasi and Albert model. We are also interested in seeing if there are starting condition values that can cause "hipster" nodes to have little or no effect on the remainder of the network.
 
-![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png)
-*Figure 6: A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png"> |
+|--|-------|
+| *Figure 6a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 6b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
 In our investigation of Barabasi and Albert models we learn that the anti establishment "hipster" nodes in fact have an even larger impact than they do on the regular Facebook data. This is probably because Barabasi and Albert models are created with preferential attachment in mind, meaning that when a hipster node is a hub node, it has a large impact on the network. Certain nodes have high concentrations of neighbors, meaning one hipster can have a much larger impact than they would if they had fewer neighbors. As can be seen in the above graph, we only need about a 20% probability of hipsters for product 2 to always win out over product 1. This is different from the Facebook graph where product 2 was gaining popularity when the probability of hipsters was between 20% and 40% but not when it was over 40%.
 
