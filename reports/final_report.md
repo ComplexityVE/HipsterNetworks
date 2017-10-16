@@ -19,7 +19,7 @@ We start the simulation by determining which nodes are conformists and which nod
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is figure 1.
 We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state. We generate several graphs in this manner for different values of τ. We run this model on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="150%">|
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="250%">|
 |--|-------|
 *FIGURE 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. The red line is the product 1 adoption fraction and the blue line is product 2. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*|*Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
 
@@ -27,7 +27,7 @@ Figure 1a approximately matches the behavior expected from the network based on 
 
 To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of the percentage likelihood that a node will be a hipster and over different values of τ.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png" width="150%">|
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png" width="250%">|
 |--|-------|
 *FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 and a sweep of P hipster values. For each value of P, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.* | *Figure 2b): Juul and Porter graph of the steady state adoption fractions of their model with τ = 1.*|
 
