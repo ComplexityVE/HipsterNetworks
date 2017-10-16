@@ -45,19 +45,13 @@ When the steady state is reached in our graphs there is an adoption fraction of 
 
 When we compare Figure 3a to Juul and Porter's graph (Fig 3b), we see similar qualitative and quantitative behavior. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a small window (0.2< p <0.5) in which Product 2 will end up more popular than Product 1. This indicates that with a delay in knowledge of τ = 4, there cannot be a majority of hipsters in the network.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT5.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT5.png" width="150%"> |
-|--|-------|
-|*Figure 4a) τ = 5. A graph of steady state adoption fractions of the model with τ = 5 and a sweep of p  values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 4b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 5.*|
-
-When we compare Figure 4a to Juul and Porter's graph (Fig 4b), we again see similar qualitative and quantitative behavior. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a window (0.2< p <0.65) in which Product 2 will end up more popular than Product 1. This indicates that with a delay in knowledge of five time steps, there Product 2 is most successful when there is a slight minority or majority of hipsters in the network, but not when there is a large disparity in either direction.
-
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT6.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT6.png" width="150%"> |
 |--|-------|
-|*Figure 5a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 6.*|
+|*Figure 4a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 4b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 6.*|
 
 When we compare Figure 5a to Juul and Porter's graph (Fig 5b), the trends are similar. Product 2 overtakes Product 1 early on and then the adoption fraction slowly decreases but Product 1 never regains popularity. The graph indicates that there is a large window (0.2< p) in which Product 2 will end up more popular than Product 1. This indicates that with a large delay in knowledge, there can be a majority of hipsters in the network.
 
-Figures 3 shows that Product 2 overtakes Product 1 in popularity soon, and with τ = 4, the hipsters become aware of it later so they still adopt product 2 for several time steps before adopting Product 1 again (this is why Product 1 becomes popular again). Figures 4 and 5 show that Product 2 overtakes Product 1 in popularity quickly again, but with τ = 6, the hipsters' knowledge about the network is so delayed that they continue to adopt Product 2 even though it's popular for a long time, which is why Product 1 never becomes popular again. 
+Figures 3 shows that Product 2 overtakes Product 1 in popularity soon, and with τ = 4, the hipsters become aware of it later so they still adopt product 2 for several time steps before adopting Product 1 again (this is why Product 1 becomes popular again). Figure 4 shows that Product 2 overtakes Product 1 in popularity quickly again, but with τ = 6, the hipsters' knowledge about the network is so delayed that they continue to adopt Product 2 even though it's popular for a long time, which is why Product 1 never becomes popular again. 
 
 There needs to be at least 20% of the network to be hipster nodes for product 2 to even have a chance at becoming more popular than product 1 no matter what τ is. The bigger the time delay in knowledge hipsters have, the more likely the hipster or anti-establishment idea is to become more popular than product 1.
 
@@ -67,7 +61,7 @@ To extend on the work done by Juul and Porter([1](#Bibliography)), we also run t
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png"> |
 |--|-------|
-| *Figure 6a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 6b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
+| *Figure 5a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
 In our investigation of Barabasi and Albert models we learn that the anti establishment "hipster" nodes in fact have an even larger impact than they do on the regular Facebook data. This is probably because Barabasi and Albert models are created with preferential attachment in mind, meaning that when a hipster node is a hub node, it has a large impact on the network. Certain nodes have high concentrations of neighbors, meaning one hipster can have a much larger impact than they would if they had fewer neighbors. As can be seen in the above graph, we only need about a 20% probability of hipsters for product 2 to always win out over product 1. This is different from the Facebook graph where product 2 was gaining popularity when the probability of hipsters was between 20% and 40% but not when it was over 40%.
 
@@ -75,7 +69,7 @@ We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P3.png"> |
 |--|-------|
-| *Figure 7a) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 7b) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
+| *Figure 5a) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
 (Needs analysis of extension)
 
