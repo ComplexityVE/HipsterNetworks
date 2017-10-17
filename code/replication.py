@@ -153,7 +153,6 @@ class Hipster:
 
         mini_value = 0
         for k in range(num):
-            print(k)
             if er == True:
                 self.G = nx.erdos_renyi_graph(5000, 5/5000)
             elif ba == True:
