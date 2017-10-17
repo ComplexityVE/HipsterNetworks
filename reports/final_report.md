@@ -1,7 +1,7 @@
 # Analysis of the spread of hipster products throughout a network
 ### Authors: Victoria McDermott and Emily Lepert
 
-## Abstract
+### Abstract
 How do anti-establishment ideas spread throughout a network? What factors into the success of one idea over another? In this paper, we use Python to explore the influence of "hipsters" on "conformists." We consider "hipsters" to be anti-establishment people in a network who adopt the idea or product that is least popular at some given prior time in the simulation and "conformists" to be people who adopt the idea that most of their neighbors have adopted. We start out with one idea that "conformists" adopt and one idea that will originally only be adopted by "hipsters." We soon see that the idea that starts out only with the "hipsters" can gain almost equivalent popularity to the idea that started only with "conformists" with certain values of starting conditions and parameters. We investigate how the length of a time delay for when the hipsters are considering a product to be popular or unpopular affects which product gains popularity at a final steady state.
 
 _________________________________________________________
