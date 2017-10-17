@@ -67,11 +67,13 @@ In our investigation of Barabasi and Albert models we learn that the anti establ
 
 We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT5P3.png"> |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P3.png"> |
 |--|-------|
-| *Figure 5a) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 5b) A graph of the adoption fraction vs φ (threshold) values on a Barabasi and Albert model. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
+| *Figure 6a) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 6b) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
-(Needs analysis of extension)
+As shown in the replication portion, when p=0.04, Product 1 always dominates no matter what τ value, so it makes sense that in Fig 6a, no matter what φ value each node has, product 1 will always be more popular than product 2. Similarly, when p=0.3, Product 2 tends to dominate for τ = 3,4,5,6 and is even with Product 1 when τ=1,2. Interestingly, ....
+
+Generally, both Fig 6a and Fig 6b show that when the φ>=0.22, no product wins. Intuitively this makes sense because each node needs 22% of its neighbors to be active for it to become active, meaning that it is hard for node activity to spread. The starting node must be neighbors with nodes with few other neighbors for any product to gain a foothold in the network. The likelihood that a random selection from all of the graph nodes to yield such a node is small. 
 
 ## Conclusion
 The replication of the Juul and Porter paper([1](#Bibliography)) on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actually popular.
