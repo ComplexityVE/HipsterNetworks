@@ -57,7 +57,7 @@ There needs to be at least 20% of the network to be hipster nodes for product 2 
 
 To summarize our findings on the importance of τ values on the spread of network ideas, generated a graph of adoption fractions vs τ values to see the general trend in adoption fractions.
 
-<img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png">
+![](https://github.com/Elepert/HipsterNetworks/blob/master/images/tausweepp3.png)
 *Figure 5) Sweep of τ values vs adoption fraction. p= 0.3, φ=1/33.*
 
 Juul and Porter do not generate a similar graph, but the behavior shown by this graph is consistent with our results. As τ becomes bigger, Product 2 has becomes more and more popular.
