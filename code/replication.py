@@ -153,6 +153,7 @@ class Hipster:
 
         mini_value = 0
         for k in range(num):
+            print(k)
             if er == True:
                 self.G = nx.erdos_renyi_graph(5000, 5/5000)
             elif ba == True:
@@ -223,13 +224,15 @@ hipster = Hipster(fb, 1, .0)
 hipster.run_simulation_num(20, 10)
 hipster.graph()'''
 if __name__ == '__main__':
+    '''
     graph = nx.barabasi_albert_graph(4000, 22)
     degrees = graph.degree()
     sum_of_edges = sum(degrees.values())
     average = sum_of_edges/len(graph.nodes())
     print(average)
     #graph = nx.erdos_renyi_graph(10000, 5/10000)
-    #graph = read_graph('facebook_combined.txt')
-    hipster = Hipster(graph, 1, .3)
-    hipster.run_simulation_num(20, 10)
+    '''
+    graph = read_graph('facebook_combined.txt')
+    hipster = Hipster(graph, 5, .3, threshold=0.17)
+    hipster.run_simulation_num(20, 100)
     hipster.graph()
