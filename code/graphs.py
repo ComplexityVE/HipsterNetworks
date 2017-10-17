@@ -42,7 +42,7 @@ def threshold_sweep(tau):
     ts = np.arange(0, 0.35, .02)
     pplot = list(ts)
     for t in ts:
-        hipster = Hipster(fb, tau, 0.3, t)
+        hipster = Hipster(fb, tau, 0.04, t)
         hipster.run_simulation_num(20, 200, er=False, ba=False)
         ratios = hipster.get_ratios()
         end1_values.append(ratios[0][-1])

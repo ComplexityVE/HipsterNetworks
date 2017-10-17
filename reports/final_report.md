@@ -4,10 +4,11 @@
 ## Abstract
 How do anti-establishment ideas spread throughout a network? What factors into the success of one idea over another? In this paper, we use Python to explore the influence of "hipsters" on "conformists." We consider "hipsters" to be anti-establishment people in a network who adopt the idea or product that is least popular at some given prior time in the simulation and "conformists" to be people who adopt the idea that most of their neighbors have adopted. We start out with one idea that "conformists" adopt and one idea that will originally only be adopted by "hipsters." We soon see that the idea that starts out only with the "hipsters" can gain almost equivalent popularity to the idea that started only with "conformists" with certain values of starting conditions and parameters. We investigate how the length of a time delay for when the hipsters are considering a product to be popular or unpopular affects which product gains popularity at a final steady state.
 
-## Introduction
+_________________________________________________________
+
 We are replicating and extending the experiment done by Juul and Porter([1](#Bibliography)). They analyzed "hipsterness" in a network and the effect it had on ideas spreading throughout a Facebook network. A hipster adopts the least popular idea in a network, while a conformist adopts the most popular idea amongst its neighbors. Juul and Porter were interested in the implications the spread of ideas had on networks, particularly elections, and how many anti-establishment nodes (hipsters) needed to be present in a network for the anti-establishment idea to gain popularity. We also investigate how different time delay values for when hipsters are considering products affect the distribution of products at the steady state. We later extend our work by applying our model to Barabasi and Albert models to see how the spread of ideas is different from a real Facebook network.
 
-## Replication
+### Ideas spreading throughout a Facebook network
 We replicate the experiment done by Juul and Porter([1](#Bibliography)). We create a network based on data collected from Facebook([2](#Bibliography)). Our Facebook dataset is different than the one used in the paper, so our results are quantitatively different, but qualitatively similar.
 
 We assign four values to each node that will determine each node's behavior. These four values are:
@@ -23,11 +24,15 @@ We start the simulation by determining which nodes are conformists and which nod
 We run 200 simulations and average the adoption fraction at each time step over the 200 simulations. The result is Figure 1.
 We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state (Figures 2-5). The distribution reaches a steady state because nodes don't change products after they become active. We generate several graphs in this manner for different values of τ. We run this model on a real Facebook data set([2](#Bibliography)) just as Juul and Porter did in their experiment.
 
+#### Single 
+
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="250%">|
 |--|-------|
 *Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. The red line is the product 1 adoption fraction and the blue line is product 2. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*|*Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
 
 Figure 1a approximately matches the behavior expected from the network based on Juul and Porter’s paper (Fig 1b). In Fig 1a, the steady state for both products is between 0.4 and 0.5, while in Fig 1b, both products reach a steady state value of 0.5. Since we are not using the same exact data set as the paper and we see similar behavior as the paper, we can attribute this error to the difference in each data set. From 0< t <10, each product spreads throughout the network evenly. That is, the hipster nodes manage to spread product 2 sufficiently enough that the conformist nodes start spreading product 2 as well as product 1.
+
+#### Sweep of p values
 
 To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of p values (the percentage likelihood that a node will be a hipster), over different values of τ.
 
@@ -55,6 +60,8 @@ Figures 3 shows that Product 2 overtakes Product 1 in popularity soon, and with 
 
 There needs to be at least 20% of the network to be hipster nodes for product 2 to even have a chance at becoming more popular than product 1 no matter what τ is. The bigger the time delay in knowledge hipsters have, the more likely the hipster or anti-establishment idea is to become more popular than product 1.
 
+#### Relevance of τ values
+
 To summarize our findings on the importance of τ values on the spread of network ideas, we generated a graph of adoption fractions vs τ values to see the general trend in adoption fractions.
 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/tausweepp3.png)
@@ -63,25 +70,30 @@ To summarize our findings on the importance of τ values on the spread of networ
 
 Juul and Porter do not generate a similar graph, but the behavior shown by this graph is consistent with our results. As τ becomes bigger, Product 2 has becomes more and more popular.
 
-## Extension:
+### Extending the work:
 
 To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different φ (threshold) values. We are interested in seeing if anti-establishment nodes play as large a role in a Barabasi and Albert model. We are also interested in seeing if there are starting condition values that can cause "hipster" nodes to have little or no effect on the remainder of the network.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png"> |
-|--|-------|
-| *Figure 6a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 6b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
-
-In our investigation of Barabasi and Albert models we learn that the anti establishment "hipster" nodes in fact have an even larger impact than they do on the regular Facebook data. This is probably because Barabasi and Albert models are created with preferential attachment in mind, meaning that when a hipster node is a hub node, it has a large impact on the network. Certain nodes have high concentrations of neighbors, meaning one hipster can have a much larger impact than they would if they had fewer neighbors. As can be seen in the above graph, we only need about a 20% probability of hipsters for product 2 to always win out over product 1. This is different from the Facebook graph where product 2 was gaining popularity when the probability of hipsters was between 20% and 40% but not when it was over 40%.
+#### Investigating φ values
 
 We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread.
 
-| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepThT5P3.png"> |
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P3.png"> |
 |--|-------|
-| *Figure 7a) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 7b) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
+| *Figure 6a) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 6b) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
 
-As shown in the replication portion, when p=0.04, Product 1 always dominates no matter what τ value, so it makes sense that in Fig 7a, no matter what φ value each node has, product 1 will always be more popular than product 2. Similarly, when p=0.3, Product 2 tends to dominate for τ = 3,4,5,6 and is even with Product 1 when τ=1,2. Interestingly, ....
+As shown in the replication portion, when p=0.04, Product 1 always dominates no matter what τ value, so it makes sense that in Fig 6a, no matter what φ value each node has, product 1 will always be more popular than product 2. Similarly, when p=0.3, Product 2 tends to dominate for τ = 3,4,5,6 and is even with Product 1 when τ=1,2.
 
-Generally, both Fig 7a and Fig 7b show that when the φ>=0.22, no product wins. Intuitively this makes sense because each node needs 22% of its neighbors to be active for it to become active, meaning that it is hard for node activity to spread. The starting node must be neighbors with nodes with few other neighbors for any product to gain a foothold in the network. The likelihood that a random selection from all of the graph nodes to yield such a node is small. 
+Fig 6b shows that when φ>=0.07, both products have the same adoption fraction. Generally, both Fig 6a and Fig 6b show that when the φ>=0.15, no product wins. Intuitively this makes sense because each node needs 15% of its neighbors to be active for it to become active, meaning that it is hard for node activity to spread. The starting node must be neighbors with nodes with few other neighbors for any product to gain a foothold in the network. The likelihood that a random selection from all of the graph nodes to yield such a node is small. 
+
+#### Applying the model to BA graphs
+
+| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png"> |
+|--|-------|
+| *Figure 7a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 7b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|
+
+In our investigation of Barabasi and Albert models we learn that the anti establishment "hipster" nodes in fact have an even larger impact than they do on the regular Facebook data. This is probably because Barabasi and Albert models are created with preferential attachment in mind, meaning that when a hipster node is a hub node, it has a large impact on the network. Certain nodes have high concentrations of neighbors, meaning one hipster can have a much larger impact than they would if they had fewer neighbors. As can be seen in the above graph, we only need about a 20% probability of hipsters for product 2 to always win out over product 1. This is different from the Facebook graph where product 2 was gaining popularity when the probability of hipsters was between 20% and 40% but not when it was over 40%.
+
 
 ## Conclusion
 The replication of the Juul and Porter paper([1](#Bibliography)) on Facebook data shows that when hipsters are less updated on the current ideas spreading throughout a network, the originally unpopular idea has a greater chance of becoming and remaining popular. Hipsters adopt the least popular product so a delay in information means that they believe that the originally unpopular idea is unpopular even when it is actually popular.
