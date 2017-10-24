@@ -22,7 +22,7 @@ Nodes all start out in an inactive state. This is similar to how people generall
 We start the simulation by determining which nodes are conformists and which nodes are hipsters. We iterate through all nodes in the network, assigning a node a hipster personality with probability p, or a conformist personality with probability 1-p. We then randomly assign one node product 1, the conformist (traditional) product regardless of whether this starting node is a conformist or hipster. From there on, each time step happens in two stages. Synchronously, each node updates its activity status by evaluating the percentage of neighbors that are active. If the percentage is greater than or equal to the nodes' φ value, then the node becomes active. After becoming activated, each node evaluates which product it should adopt based on its identity (hipster or conformist). The first time a hipster is activated (not including the starting node if that node was a hipster) it will automatically be assigned to product 2, the anti establishment product. In the future, after this initial hipster has been assigned product 2, a hipster node will look at the adoption fraction of the network at timestep t-τ, where t is the current time step and τ is the time delay. The hipster will adopt whichever product was least popular in the general population at the timestep t-τ. A conformist node will find which product is adopted by the majority of its neighbors and adopt that product. Once a node becomes active and adopts a product, the status of that node as activated and the product that node has adopted will never change.
 
 We run 200 simulations of our model on a Facebook dataset and average the adoption fraction of each product at every time step over the 200 simulations. The result is Figure 1.
-We then sweep our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state (Figures 2-5). The distribution eventually reaches a steady state because nodes don't change products after they become active. We generate several graphs in this manner for different values of τ. We run this model on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
+We then run our model for different values of p (the probability that a node is a hipster) and record the fraction of nodes that have adopted each of the two products at the time when the product distribution has reached a steady state (Figures 2-5). The distribution eventually reaches a steady state because nodes don't change products after they become active. We generate several graphs in this manner for different values of τ. We run this model on a real Facebook data set([4](#Bibliography)) just as Juul and Porter did in their experiment.
 
 #### Single run through the network
 
@@ -32,27 +32,27 @@ We then sweep our model for different values of p (the probability that a node i
 
 Figure 1a approximately matches the behavior expected from the network based on Juul and Porter’s paper (Fig 1b). In Fig 1a, the steady state for both products is between 0.4 and 0.5, while in Fig 1b, both products reach a steady state value of 0.5. Since we are not using the same exact data set as the paper and we see similar behavior as the paper, we can attribute this error to the difference in each data set. From 0< t <10, each product spreads throughout the network evenly. That is, the hipster nodes manage to spread product 2 sufficiently enough that the conformist nodes start spreading product 2 as well as product 1.
 
-#### Sweep of p values
+#### Percentage of hipsters in a network
 
-To observe the behavior of the model over a variety of parameters we plot the values of the adoption fraction at the last time step over a sweep of p values (the percentage likelihood that a node will be a hipster), over different values of τ.
+To find the percentage of hipsters required in a network for the anti-establishment idea to spread, we plot the values of the adoption fraction at the last time step over a range of p values (the percentage likelihood that a node will be a hipster), over different values of τ.
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png" width="250%">|
 |--|-------|
-*FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.* | *Figure 2b): Juul and Porter graph of the steady state adoption fractions of their model with τ = 1.*|
+*FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.* | *Figure 2b): Graph of the steady state adoption fractions of their model with τ = 1, copied from Juul and Porter.*|
 
 If we compare Figure 2a to Juul and Porter’s graph (Fig 2b), we can see that the trends are similar. By the time p is equal to 0.2 the adoption fractions oscillate around 0.45. Fig 2b shows a smoother line, but our values remain within the maximum and minimum values the graph bounds. We attribute the difference in values to the difference in data set. When τ is equal to 1, the likelihood that the hipster product (product 2) will overtake the conformist one is small when p<0.2, but is almost equivalent to the likelihood that the conformist product will be more popular when p>0.2. This means that when hipsters have current knowledge about the products spreading throughout network as a whole, there is little advantage given to either Product 1 or 2.
 
-When the steady state is reached in our graphs there is an adoption fraction of about 40% for each product whereas in the original graph there was an adoption fraction of about 50% for each of the two products at steady state. Further, when p = 0, we should expect to see 100% Product 1 in the network, but we only see about 85%. This is because we used a different Facebook data set in which some of the nodes are isolated and not connected to the larger network. This means that there will never be enough nodes active around them for them to become activated. Because some of the nodes in our data set never become activated the adoption fractions of each product do not necessarily add up to 1 at steady state.
+When the steady state is reached in our graphs there is an adoption fraction of about 40% for each product whereas in the original graph there was an adoption fraction of about 50% for each of the two products at steady state. Further, when p = 0, we should expect to see 100% Product 1 in the network, but we only see about 85%. We suspect this is because we used a different Facebook data set in which some of the nodes are isolated and not connected to the larger network. This means that there will never be enough nodes active around them for them to become activated. Because some of the nodes in our data set never become activated the adoption fractions of each product do not necessarily add up to 1 at steady state.
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT4.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT4.png" width="150%"> |
 |--|-------|
-|*Figure 3a) τ = 4. A graph of steady state adoption fractions of the model with τ = 4 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure3b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 4.*|
+|*Figure 3a) τ = 4. A graph of steady state adoption fractions of the model with τ = 4 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure3b)  Graph of the steady state adoption fractions of their model with τ = 4, copied from Juul and Porter.*|
 
 When we compare Figure 3a to Juul and Porter's graph (Fig 3b), we see similar qualitative and quantitative behavior. Product 2 overtakes Product 1 early on and then Product 1 overtakes Product 2. The graph indicates that there is a small window (0.2< p <0.5) in which Product 2 will end up more popular than Product 1. This indicates that with a delay in knowledge of τ = 4, the hipster product does not win out when there is a majority of hipsters in the network (p>0.5).
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT6.png" width="70%"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT6.png" width="150%"> |
 |--|-------|
-|*Figure 4a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 and a sweep of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 4b) Juul and Porter graph of the steady state adoption fractions of their model with τ = 6.*|
+|*Figure 4a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*|*Figure 4b)  Graph of the steady state adoption fractions of their model with τ = 6, copied from Juul and Porter..*|
 
 When we compare Figure 4a to Juul and Porter's graph (Fig 4b), the trends are similar. Product 2 overtakes Product 1 early on and then the adoption fraction slowly decreases but Product 1 never regains popularity. The graph indicates that there is a large window (p>0.2) in which Product 2 will end up more popular than Product 1. This indicates that with a large delay in knowledge, the hipster product can win out even when there is a majority of hipsters in the network.
 
@@ -60,21 +60,21 @@ There needs to be at least 20% of the network to be hipster nodes for product 2 
 
 #### Relevance of τ values
 
-To summarize our findings on the importance of τ values on the spread of network ideas, we generated a graph of adoption fractions vs τ values to see the general trend in adoption fractions.
+To summarize our findings on the importance of τ values on the spread of network ideas, we generate a graph of adoption fractions vs τ values to see the general trend in adoption fractions.
 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/tausweepp3.png)
 
-*Figure 5) Sweep of τ values vs adoption fraction. p= 0.3, φ=1/33.*
+*Figure 5) Simulation for a range of τ values vs adoption fraction. p= 0.3, φ=1/33.*
 
-Juul and Porter do not generate a similar graph, but the behavior shown by this graph is consistent with our results. As τ becomes bigger, Product 2 has becomes more and more popular.
+Juul and Porter do not generate a similar graph, but the behavior shown by this graph is consistent with our results. As τ becomes bigger, Product 2 becomes more and more popular.
 
 ### Extending the work:
 
-To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we play around with different φ (threshold) values. We are interested in seeing if anti-establishment nodes play as large a role in a Barabasi and Albert model. We are also interested in seeing if there are starting condition values that can cause "hipster" nodes to have little or no effect on the remainder of the network.
+To extend on the work done by Juul and Porter([1](#Bibliography)), we also run the model on a Barabasi and Albert model. Additionally, we run the simulation for a range of φ (threshold) values. We are interested in seeing if anti-establishment nodes play as large a role in a Barabasi and Albert model as they do in the Facbook network because BA networks are scale free networks which approximate the clustering seen in social netwoks. We are also interested in seeing if there are starting condition values that can cause "hipster" nodes to have little or no effect on the remainder of the network.
 
 #### Investigating φ values
 
-We ran a sweep of threshold values (φ) from 0, to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread.
+We run the simulation with a range of threshold values (φ) from 0 to 0.35 on the Facebook model to investigate the impact of the activation threshold (φ) on the spread. We are interested in finding which threshold values allow which product to win.
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P04.png"> | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P3.png"> |
 |--|-------|
