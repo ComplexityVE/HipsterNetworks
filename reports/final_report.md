@@ -28,10 +28,8 @@ We then run our model for different values of p (the probability that a node is 
 
 | <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png" width="70%">| <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png" width="250%">|
 |--|-------|
-<<<<<<< HEAD
+
 *Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. *|*Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
-=======
-|*Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*|*Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
 |Figure 1a) *A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. Eventually the network reaches a steady state (indicated by the horizontal line at the top right of the graph).*|
 |Figure 1b) *Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*|
 
@@ -48,7 +46,6 @@ We then run our model for different values of p (the probability that a node is 
   <td colspan="2">Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.</td>
   </tr>
 </table>
->>>>>>> 25de4a3e5d9bb74b17f1f2fc2db027a6ac94f467
 
 Figure 1a approximately matches the behavior expected from the network based on Juul and Porter’s paper (Fig 1b). As can be seen in the graphs above, each product gains a larger adoption fraction over time until each product has been adopted by approximately 50% of the population at time step 10. In Fig 1a, the steady state for both products is between 0.4 and 0.5, while in Fig 1b, both products reach a steady state value of 0.5. We can assume that this difference is due to the fact that we use a different Facebook data set than Juul and Porter use in their paper. From 0< t <10, each product spreads throughout the network evenly. The hipster nodes manage to spread product 2 sufficiently enough that the conformist nodes start spreading product 2 as well as product 1.
 
