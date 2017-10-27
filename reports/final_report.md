@@ -26,8 +26,8 @@ We then run our model for different values of p (the probability that a node is 
 
 #### Single run through the network
 
-<img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png">
-*Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step. *
+![]("https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png")
+*Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step.*
 <img src="https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png">
 *Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*
 
