@@ -29,6 +29,7 @@ We then run our model for different values of p (the probability that a node is 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelReplicationT1.png)
 
 *Figure 1a) A graph of the adoption fraction at each time step with τ = 1 and p value equal to 0.3. At each time step we calculate the percentage of nodes that have adopted product 1 and product 2 (adoption fraction). We take the average values over 200 simulations with 20 time steps each and plot those values against each time step.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/FBOriginalSingle.png)
 
 *Figure 1b) Juul and Porter's graph of the adoption fraction at teach time step with τ = 1 and τ = 4 with p = 0.3. The red and purple triangles on the graph is what Fig 1a) is replicating.*
@@ -43,6 +44,7 @@ To find the percentage of hipsters required in a network for the anti-establishm
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT1.png)
 
 *FIGURE 2a): τ = 1. A graph of steady state adoption fractions of the model with τ equal to 1 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT1.png)
 
 *Figure 2b): Graph of the steady state adoption fractions of their model with τ = 1, copied from Juul and Porter.*
@@ -55,6 +57,7 @@ When the steady state is reached in our graphs there is an adoption fraction of 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT4.png)
 
 *Figure 3a) τ = 4. A graph of steady state adoption fractions of the model with τ = 4 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT4.png)
 
 *Figure3b)  Graph of the steady state adoption fractions of their model with τ = 4, copied from Juul and Porter.*
@@ -65,6 +68,7 @@ When we compare Figure 3a to Juul and Porter's graph (Fig 3b), we see similar qu
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelFBSweepT6.png)
 
 *Figure 4a) τ = 6. A graph of steady state adoption fractions of the model with τ = 6 of simulations for a range of p values. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/OriginalFBT6.png)
 
 *Figure 4b)  Graph of the steady state adoption fractions of their model with τ = 6, copied from Juul and Porter.*
@@ -94,6 +98,7 @@ We run the simulation with a range of threshold values (φ) from 0 to 0.35 on th
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P04.png)
 
 *Figure 6a) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.04. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/FBSweepThT4P3.png)
 
 *Figure 6b) A graph of the adoption fraction vs φ (threshold) values on the Facebook dataset. τ = 5, p = 0.3. For each value of φ, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
@@ -107,6 +112,7 @@ Fig 6b shows that when φ>=0.07, both products have the same adoption fraction. 
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT1.png)
 
 *Figure 7a) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 1. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
+
 ![](https://github.com/Elepert/HipsterNetworks/blob/master/images/labelrealBAT3.png)
 
 *Figure 7b) A graph of the adoption fraction vs p values on a Barabasi and Albert model. τ = 3. For each value of p, we ran 100 simulations with time step 20 and averaged the adoption fractions at a steady state.*
